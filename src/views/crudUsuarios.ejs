@@ -1,0 +1,103 @@
+<%- include('partials/_header') -%>
+    <%- include('partials/_barra') -%>
+
+        <div class="container bg-dark mt-5 mb-5">
+            <div class="row">
+                <div class="col-4 text-dark p-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="/crearUsuario" method="post">
+                                <legend>Crear Usuario</legend>
+        
+                                <div class="mb-3">
+                                    <label for="rut">Rut</label>
+                                    <input type="text" name="rut" id="rut" class="form-control" required>
+                                </div>
+        
+                                <div class="mb-3">
+                                    <label for="nombre">Nombre</label>
+                                    <input type="text" name="nombre" id="nombre" class="form-control" required>
+                                </div>
+        
+                                <div class="mb-3">
+                                    <label for="apellido">Apellido</label>
+                                    <input type="text" name="apellido" id="apellido" class="form-control" required>
+                                </div>
+        
+                                <div class="mb-3">
+                                    <label for="username">Nombre de usuario</label>
+                                    <input type="text" name="username" id="username" class="form-control" required>
+                                </div>
+        
+                                <div class="mb-3">
+                                    <label for="pwd">Contraseña</label>
+                                    <input type="password" name="pwd" id="contrasena" class="form-control" required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="TipoUsuarioIdTipoUsuario">Tipo de usuario</label>
+                                    <select name="TipoUsuarioIdTipoUsuario" id="tUser" class="form-select">
+                                        <% tipos.map(t => { %>
+                                            <option value="<%- t.id_tipo_usuario -%>"><%- t.tipo_usuario -%></option>
+                                        <% } ) %>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <button type="submit" class="btn btn-primary">Crear</button>
+                                    <button type="reset" class="btn btn-danger">Limpiar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 p-3">
+                    <table class="table table-dark table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Rut</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Apellido</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Contraseña</th>
+                                <th scope="col">Tipo de usuario</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% data.map(u=> { %>
+                                <tr>
+                                    <td>
+                                        <%- u.id_usuario -%>
+                                    </td>
+                                    <td>
+                                        <%- u.rut -%>
+                                    </td>
+                                    <td>
+                                        <%- u.nombre -%>
+                                    </td>
+                                    <td>
+                                        <%- u.apellido -%>
+                                    </td>
+                                    <td>
+                                        <%- u.username -%>
+                                    </td>
+                                    <td>
+                                        <%- u.pwd -%>
+                                    </td>
+                                    <td>
+                                        <%- u.TipoUsuarioIdTipoUsuario -%>
+                                    </td>
+                                    <td>
+                                        <a href="/admin/crudUsuarios/editar/<%- u.id_usuario -%>" class="btn btn-success">Editar</a>
+                                        <a href="/borrarUsuario/<%- u.id_usuario -%>" class="btn btn-danger">Eliminar</a>
+                                    </td>
+                                </tr>
+                                <% } ) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <%- include('partials/_footer')-%>

@@ -1,0 +1,6 @@
+.card-body-aj {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 1px black solid;
+}

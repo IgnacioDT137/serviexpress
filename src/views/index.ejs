@@ -1,0 +1,95 @@
+<%- include('partials/_header') -%> <%- include('partials/_barra') -%>
+
+<div
+  id="carouselExampleIndicators"
+  class="carousel slide"
+  data-bs-ride="true"
+>
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img
+        src="img/promo1.PNG"
+        class="d-block w-100"
+        alt="..."
+      />
+    </div>
+    <div class="carousel-item">
+      <img
+        src="img/promo2.PNG"
+        class="d-block w-100"
+        alt="..."
+      />
+    </div>
+    <div class="carousel-item">
+      <img
+        src="img/promo3.PNG"
+        class="d-block w-100"
+        alt="..."
+      />
+    </div>
+  </div>
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExampleIndicators"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExampleIndicators"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<div class="container-fluid mt-5">
+  <h1 class="text-center text-light bg-dark" id="titulo-servicios">NUESTROS PRINCIPALES SERVICIOS</h1>
+  <div class="row row-cols-3 mw-100" id="destacados">
+    <div class="col" id="producto">
+      <img class="index-img" src="img/servicio1.PNG" alt="Cambio de aceite"/>
+    </div>
+    <div class="col" id="producto">
+      <img src="img/servicio2.PNG" class="index-img" alt="Cambio de aceite"/>
+    </div>
+    <div class="col" id="producto">
+      <img src="img/servicio3.PNG" class="index-img" alt="Cambio de aceite"/>
+    </div>
+  </div>  
+</div>
+
+
+<div class="mapa d-flex justify-content-center mb-5">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1395.7141986197898!2d-71.21359994423314!3d-33.69376935538871!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2scl!4v1666233924909!5m2!1ses!2scl" width="600" height="540" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <img src="img/los-santos-customs.jpg" alt="taller" class="img-fluid">
+</div>
+
+
+<%- include('partials/_footer') -%>

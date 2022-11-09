@@ -1,0 +1,50 @@
+<%- include('partials/_header') -%>
+
+<div class="row mw-100">
+    <div class="col-6 mx-auto mt-5">
+        <div class="card">
+            <div class="card-body">
+                <form action="/login" method="post">
+                    <legend>Iniciar sesión</legend>
+
+                    <div class="mb-3">
+                        <label for="userEmail" class="form-label">Nombre de usuario</label>
+                        <input type="text" name="username" id="correo" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pwd" class="form-label">Contraseña</label>
+                        <input type="password" name="pwd" id="pwd" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Ingresar</button>
+                    <a href="/registro" class="btn">Crear cuenta</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% if (typeof usuarioNotFound != 'undefined') { %>
+    <script>
+        Swal.fire({
+            icon: "error",
+            title: "Usuario no encontrado",
+            timer: 3000,
+            showConfirmButton: false
+        })
+    </script>
+<% } %>
+
+<% if (typeof usuarioFound != 'undefined') { %>
+    <script>
+        Swal.fire({
+            icon: "success",
+            title: "BIENVENIDO A SERVIEXPRESS",
+            timer: 3000,
+            showConfirmButton: false
+        }).then(() => {
+            window.location= "/"
+        })
+    </script>
+<% } %>
+
+<%- include('partials/_footer') -%>

@@ -1,0 +1,72 @@
+<%- include('partials/_header') -%>
+<%- include('partials/_barra') -%>
+
+<div class="container bg-dark mt-5 mb-5">
+  <div class="row">
+      <div class="col-4 text-dark p-3">
+          <div class="card">
+              <div class="card-body">
+                  <form action="/crearServicio" method="post">
+                      <legend>Crear Servicio</legend>
+
+                      <div class="mb-3">
+                          <label for="servicio">Nombre Servicio</label>
+                          <input type="text" name="nombre_servicio" id="nombre_servicio" class="form-control" required>
+                      </div>
+
+                      <div class="mb-3">
+                          <label for="descripcion">Descripcion Servicio</label>
+                          <input type="text" name="descripcion_servicio" id="descripcion_servicio" class="form-control" required>
+                      </div>
+
+                      <div class="mb-3">
+                          <label for="valor">Valor Servicio</label>
+                          <input type="text" name="valor_servicio" id="valor_servicio" class="form-control" required>
+                      </div>
+
+                      <div class="mb-3">
+                          <button type="submit" class="btn btn-primary">Crear</button>
+                          <button type="reset" class="btn btn-danger">Limpiar</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+      <div class="col-8 p-3">
+          <table class="table table-dark table-bordered">
+              <thead>
+                  <tr>
+                      <th scope="col">Id</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Descripcion</th>
+                      <th scope="col">Valor</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <% data.map(s => { %>
+                      <tr>
+                          <td>
+                              <%- s.id_servicio -%>
+                          </td>
+                          <td>
+                              <%- s.nombre_servicio -%>
+                          </td>
+                          <td>
+                              <%- s.descripcion_servicio -%>
+                          </td>
+                          <td>
+                              <%- s.valor_servicio -%>
+                          </td>
+                          <td>
+                              <a href="/admin/crudServicios/editar/<%- s.id_servicio -%>" class="btn btn-success">Editar</a>
+                              <a href="/admin/crudServicios/borrar/<%- s.id_servicio -%>" class="btn btn-danger">Eliminar</a>
+                          </td>
+                      </tr>
+                      <% } ) %>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
+    
+<%- include('partials/_footer')-%>

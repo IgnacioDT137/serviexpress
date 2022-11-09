@@ -1,0 +1,47 @@
+.links {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+}
+
+#footer {
+  display: flex;
+  background-color: rgba(173, 173, 173, 0.878);
+  max-width: 100%;
+  margin-top: auto;
+  border-top: 1px black solid;
+  margin-top: auto;
+  flex-direction: column;
+}
+
+.logos {
+  display: flex;
+  justify-content: end;
+  height: 300px;
+  padding-top: 60px;
+  padding-bottom: 10px;
+}
+
+.logos > img{
+    width: 70%;
+    height: 70%;
+}
+
+.imagenes {
+  display: flex;
+  justify-content: end;
+  height: 70px;
+  padding-top: 20px;
+}
+
+.derechos {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  max-width: 100%;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}

@@ -1,0 +1,9 @@
+#botones {
+    display: flex;
+    
+    margin: auto;
+}
+#botones > button{
+    display: flex;
+    justify-content: center;
+}

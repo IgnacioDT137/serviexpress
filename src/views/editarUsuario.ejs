@@ -1,0 +1,52 @@
+<%- include('partials/_header') -%>
+<%- include('partials/_barra') -%>
+
+<div class="container mt-5 mb-5">
+  <div class="card">
+    <div class="card-body">
+      <form action="/admin/crudUsuarios/editar/<%= data.id_usuario%>" method="post">
+        <legend>Editar Usuario</legend>
+
+        <div class="mb-3">
+            <label for="rut">Rut</label>
+            <input type="text" name="rut" id="rut" value="<%= data.rut%>" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre" value="<%= data.nombre%>" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="apellido">Apellido</label>
+            <input type="text" name="apellido" id="apellido" value="<%= data.apellido%>" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="username">Nombre de usuario</label>
+            <input type="text" name="username" id="username" value="<%= data.username%>" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="pwd">Contraseña</label>
+            <input type="password" name="pwd" id="contrasena" value="<%= data.pwd%>" class="form-control" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="TipoUsuarioIdTipoUsuario">Tipo de usuario</label>
+            <select name="TipoUsuarioIdTipoUsuario" id="tUser" class="form-select">
+                <% tipos.map(t => { %>
+                    <option value="<%- t.id_tipo_usuario -%>"><%- t.tipo_usuario -%></option>
+                <% } ) %>
+            </select>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button type="reset" class="btn btn-danger">Limpiar</button>
+        </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/_footer') -%>
