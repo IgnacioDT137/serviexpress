@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import { conexion } from "../database/conexion.js";
+import { SolicitudServicio } from "./SolicitudServicio.js";
 
 export const Usuario = conexion.define("Usuario", {
     id_usuario: {
@@ -33,3 +34,5 @@ export const Usuario = conexion.define("Usuario", {
     timestamps: false,
     tableName: "tbl_usuarios"
 })
+
+Usuario.hasMany(SolicitudServicio);

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { renderCrudServicio, crearServicio, renderEditServicio, actualizarServicio, borrarServicio, renderServicios } from "../controllers/ServicioController.js";
+import { renderCrudServicio, crearServicio, renderEditServicio, actualizarServicio, borrarServicio, renderServicios, renderFormularioServicio, solicitudServicio} from "../controllers/ServicioController.js";
 
 export const serviciosRouter = Router()
 
@@ -14,3 +14,7 @@ serviciosRouter.post("/crearServicio", crearServicio);
 serviciosRouter.get("/admin/crudServicios/borrar/:id_servicio", borrarServicio)
 
 serviciosRouter.get("/servicio", renderServicios)
+
+serviciosRouter.get("/servicio/:id_servicio", renderFormularioServicio)
+
+serviciosRouter.post("/servicio/:id_servicio", solicitudServicio)

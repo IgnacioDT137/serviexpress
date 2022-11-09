@@ -35,7 +35,7 @@ app.use(session({
 // en esta parte se declaran variables locales que la app va a usar, en este caso tipo de usuario para poder validar el acceso a las rutas
 app.use((req, res, next) => {
     res.locals.TipoUsuario = req.session.TipoUsuario
-    res.locals.username = req.session.username
+    res.locals.rut = req.session.rut
     next()
 })
 

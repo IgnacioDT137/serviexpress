@@ -1,0 +1,45 @@
+<%- include('partials/_header') -%>
+<%- include('partials/_barra') -%>
+
+<div class="row mw-100">
+  <div class="col-6 mx-auto mt-5">
+      <div class="card">
+          <div class="card-body">
+              <form action="/servicio/<%- data.id_servicio -%>" method="post">
+                <legend><%- data.nombre_servicio -%></legend>
+                <div id="detalleServicio">
+                  <div>
+                    <p><%- data.descripcion_servicio -%></p>
+                    <p>Valor: $<%- data.valor_servicio -%></p>
+                  </div>        
+                </div>          
+                <div class="mb-3">      
+                  <label for="detalle_servicio">Detalles de la solicitud</label>
+                  <textarea name="detalle_servicio" id="detalle_servicio" cols="30" rows="10" class="form-control"></textarea>
+                </div>
+                <div class="mb-3">
+                  <label for="hora_reservada">Día de reservación</label>
+                  <input type="date" name="hora_reservada" id="hora_reservada" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">Reservar</button>
+                <button type="reset" class="btn btn-danger">Limpiar</button>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+<% if (typeof solicitado != 'undefined') { %>
+  <script>
+    Swal.fire({
+        icon: "success",
+        title: "Hora reservada correctamente!",
+        timer: 3000,
+        showConfirmButton: false
+    }).then(() => {
+      window.location = "/servicio"
+    })
+</script>
+<% } %>
+
+<%- include('partials/_footer') -%>

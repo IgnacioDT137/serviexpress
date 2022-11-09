@@ -29,7 +29,7 @@ export const login = async (req, res) => {
 
             req.session.logueado = true
             req.session.TipoUsuario = usuario.TipoUsuarioIdTipoUsuario
-            req.session.username = usuario.username
+            req.session.id_usuario = usuario.id_usuario
 
             return res.render("login", {title: "Login", usuarioFound: true})
         } else {
@@ -67,7 +67,7 @@ export const logOut = async (req, res) => {
 // Renderizado de formularios
 export const renderCrud = async (req, res) => {
     try {
-        if (req.session.logueado && req.session.username == 'admin') {
+        if (req.session.logueado && req.session.TipoUsuario == 3) {
             const tipos = await TipoUsuario.findAll()
             const usuarios = await Usuario.findAll()
             return res.render("crudUsuarios", {data: usuarios, tipos: tipos, title: "Crud Usuarios"})
@@ -81,7 +81,7 @@ export const renderCrud = async (req, res) => {
 
 export const renderEdit = async (req, res) => {
     try {
-        if (req.session.logueado && req.session.username == 'admin') {
+        if (req.session.logueado && req.session.TipoUsuario == 3) {
             const id_usuario = req.params.id_usuario
             const usuarioEdit = await Usuario.findOne({where: {
                 id_usuario: id_usuario

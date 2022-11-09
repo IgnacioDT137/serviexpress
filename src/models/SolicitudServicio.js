@@ -14,8 +14,9 @@ export const SolicitudServicio = conexion.define("SolicitudServicio", {
     hora_reservada: {
         type: DataTypes.DATE,
         allowNull: false
-    }
+    },
 },{
     timestamps: false,
     tableName: "tbl_solicitud_servicio"
 })
+

@@ -1,18 +1,11 @@
 import { Servicio } from "../models/Servicio.js";
+import { SolicitudServicio } from "../models/SolicitudServicio.js";
 
 export const renderFormulario = (req, res) => {
   try {
     res.send("Formulario de servicio");
   } catch (error) {
     res.json(error);
-  }
-}
-
-export const solicitudServicio = (req, res) => {
-  try {
-    // TODO: la wea
-  } catch (error) {
-    // TODO: manejar el error
   }
 }
 
@@ -25,11 +18,36 @@ export const renderServicios = async (req, res) => {
   }
 }
 
+export const renderFormularioServicio = async (req, res) => {
+  try {
+        const id_servicio = req.params.id_servicio
+        const servicio = await Servicio.findOne({where: {id_servicio : id_servicio}})
+        return res.render("solicitarServicio", {data: servicio, title: "Reserva de hora"})
+  } catch (error) {
+      return res.json(error)
+  }
+}
+
+export const solicitudServicio = async (req, res) => {
+  try {
+    const newSolicitud = {
+      detalle_servicio: req.body.detalle_servicio,
+      hora_reservada: req.body.hora_reservada,
+      UsuarioIdUsuario: req.session.id_usuario,
+      ServicioIdServicio: req.params.id_servicio,
+    }
+    await SolicitudServicio.create(newSolicitud);
+    return res.render("solicitarServicio", {solicitado: true, title: "Reserva de hora", data: {}})
+  } catch (error) {
+    return res.json(error)
+  }
+}
+
 // Funciones de CRUD
 
 export const renderCrudServicio = async (req, res) => {
   try {
-      if (req.session.logueado && req.session.username == 'admin') {
+      if (req.session.logueado && req.session.TipoUsuario == 3) {
           const servicios = await Servicio.findAll()
           return res.render("crudServicios", {data: servicios, title: "Crud Servicios"})
       } else {
@@ -62,7 +80,7 @@ export const borrarServicio = async (req, res) => {
 
 export const renderEditServicio = async (req, res) => {
   try {
-      if (req.session.logueado && req.session.username == 'admin') {
+      if (req.session.logueado && req.session.TipoUsuario == 3) {
           const id_servicio = req.params.id_servicio
           const servicioEdit = await Servicio.findOne({where: {
               id_servicio: id_servicio
