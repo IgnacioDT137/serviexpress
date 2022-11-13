@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import { conexion } from "../database/conexion.js";
+import { Producto } from "./Producto.js";
 import { SolicitudServicio } from "./SolicitudServicio.js"
 
 export const Servicio = conexion.define("Servicio", {
@@ -26,6 +27,7 @@ export const Servicio = conexion.define("Servicio", {
     timestamps: false,
     tableName: "tbl_servicio"
 })
+
 Servicio.hasMany(SolicitudServicio, {
     foreignKey: {
         name: "FK_servicio"
