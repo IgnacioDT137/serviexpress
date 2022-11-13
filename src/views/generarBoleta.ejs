@@ -19,8 +19,8 @@
           <td><%- sol.id_sol_servicio -%></td>
           <td><%- sol.detalle_servicio -%></td>
           <td><%= sol.hora_reservada.toLocaleDateString('es-cl') %></td>
-          <td><%- sol.ServicioIdServicio -%></td>
-          <td><%- sol.UsuarioIdUsuario -%></td>
+          <td><%- sol.FK_usuario -%></td>
+          <td><%- sol.FK_servicio -%></td>
           <td><a href="/generarBoleta/<%- sol.id_sol_servicio -%>" class="btn btn-success">Generar Boleta</a></td>
         </tr>
       <% } ) %>

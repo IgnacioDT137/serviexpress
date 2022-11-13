@@ -26,4 +26,8 @@ export const Servicio = conexion.define("Servicio", {
     timestamps: false,
     tableName: "tbl_servicio"
 })
-Servicio.hasMany(SolicitudServicio)
+Servicio.hasMany(SolicitudServicio, {
+    foreignKey: {
+        name: "FK_servicio"
+    }
+})

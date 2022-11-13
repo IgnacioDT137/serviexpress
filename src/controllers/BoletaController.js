@@ -12,7 +12,7 @@ export const generarBoleta = async (req, res) => {
         const newBoleta = {
             fecha: fecha_final,
             valor: servicio.valor_servicio,
-            SolicitudServicioIdSolServicio: solicitud_servicio.id_sol_servicio
+            FK_sol_servicio: solicitud_servicio.id_sol_servicio
         }
         await Boleta.create(newBoleta);
         return res.redirect("/solicitudes")

@@ -22,4 +22,8 @@ export const SolicitudServicio = conexion.define("SolicitudServicio", {
 })
 
 
-SolicitudServicio.hasOne(Boleta)
+SolicitudServicio.hasOne(Boleta, {
+    foreignKey: {
+        name: "FK_sol_servicio"
+    }
+})

@@ -18,5 +18,9 @@ export const TipoUsuario = conexion.define("TipoUsuario",{
     tableName: "tbl_tipo_usuario"
 })
 
-TipoUsuario.hasMany(Usuario)
+TipoUsuario.hasMany(Usuario, {
+    foreignKey: {
+        name: "FK_tipo_usuario"
+    }
+})
 

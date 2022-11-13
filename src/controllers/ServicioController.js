@@ -33,8 +33,8 @@ export const solicitudServicio = async (req, res) => {
     const newSolicitud = {
       detalle_servicio: req.body.detalle_servicio,
       hora_reservada: req.body.hora_reservada,
-      UsuarioIdUsuario: req.session.id_usuario,
-      ServicioIdServicio: req.params.id_servicio,
+      FK_usuario: req.session.id_usuario,
+      FK_servicio: req.params.id_servicio,
     }
     await SolicitudServicio.create(newSolicitud);
     return res.render("solicitarServicio", {solicitado: true, title: "Reserva de hora", data: {}})

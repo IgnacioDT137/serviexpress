@@ -28,7 +28,7 @@ export const login = async (req, res) => {
         if (usuario != null) {
 
             req.session.logueado = true
-            req.session.TipoUsuario = usuario.TipoUsuarioIdTipoUsuario
+            req.session.TipoUsuario = usuario.FK_tipo_usuario
             req.session.id_usuario = usuario.id_usuario
 
             return res.render("login", {title: "Login", usuarioFound: true})
