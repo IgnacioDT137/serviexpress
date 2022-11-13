@@ -1,10 +1,11 @@
 import { Router } from "express";
-import { login, registro, renderLogin, renderRegistro, logOut, renderCrud, crearUsuario, borrarUsuario, renderEdit, actualizarUsuario} from "../controllers/UsuarioController.js";
+import { login, registro, renderLogin, renderRegistro, logOut, renderCrud, crearUsuario, borrarUsuario, renderEdit, actualizarUsuario, renderMiCuenta } from "../controllers/UsuarioController.js";
 
 export const usuarioRouter = Router();
 
 //funciones generales de usuario
 
+usuarioRouter.get("/miCuenta", renderMiCuenta)
 
 // Rutas de renderizado de formularios
 usuarioRouter.get("/login", renderLogin)

@@ -7,12 +7,14 @@ import { usuarioRouter } from "./routes/usuarioRoutes.js";
 import { conexion } from "./database/conexion.js";
 import session from "express-session"
 import { serviciosRouter } from "./routes/serviciosRoutes.js";
+import { boletaRouter } from "./routes/boletaRoutes.js";
 
 // importacion de los modelos
 import {TipoUsuario} from "./models/TipoUsuario.js";
 import {Usuario} from "./models/Usuario.js";
 import { Servicio } from "./models/Servicio.js";
 import { SolicitudServicio } from "./models/SolicitudServicio.js";
+import { Boleta } from "./models/Boleta.js"
 
 // creacion de la app
 const app = express();
@@ -46,6 +48,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(staticRouter)
 app.use(usuarioRouter)
 app.use(serviciosRouter)
+app.use(boletaRouter)
 
 // declaracion de la carpeta para archivos estaticos (css, js e imagenes)
 app.use(express.static(__dirname + "/public"))

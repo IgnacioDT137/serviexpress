@@ -43,6 +43,15 @@ export const solicitudServicio = async (req, res) => {
   }
 }
 
+export const renderSolicitudes = async (req, res) => {
+  try {
+    const solicitudes = await SolicitudServicio.findAll()
+    return res.render("generarBoleta", {data: solicitudes, title: "Solicitudes de servicio"})
+  } catch (error) {
+    return res.json(error)
+  }
+}
+
 // Funciones de CRUD
 
 export const renderCrudServicio = async (req, res) => {

@@ -18,7 +18,7 @@
               Cuenta
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="">Mi Cuenta</a></li>
+              <li><a class="dropdown-item" href="/miCuenta">Mi Cuenta</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="/cerrarsesion">Cerrar sesion</a></li>
             </ul>
@@ -31,12 +31,25 @@
               Administrador
             </a>  
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/admin/crudUsuarios">Administrar usuarios</a></li>
+              <li><a class="dropdown-item" href="/admin/crudUsuarios">Administrar Usuarios</a></li>
               <li><a class="dropdown-item" href="/admin/crudServicios">Administrar Servicios</a></li>
             </ul>
             
           </li>
           <% } %>
+
+          <% if (TipoUsuario == 2) { %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                Empleado
+              </a>  
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/solicitudes">Administrar Solicitudes</a></li>
+                <li><a class="dropdown-item" href="/boletas">Boletas</a></li>
+              </ul>
+              
+            </li>
+            <% } %>
           </ul>
       </div>
     </div>

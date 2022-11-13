@@ -61,6 +61,16 @@ export const logOut = async (req, res) => {
     return res.redirect("/login")
 }
 
+// Renderizado de mi cuenta
+export const renderMiCuenta = async (req, res) =>{
+    try {
+        const usuario = await Usuario.findOne({where: {id_usuario : req.session.id_usuario}})
+        return res.render("miCuenta", {data: usuario, title: "Mi Cuenta"})
+    } catch (error) {
+        return res.json(error)
+    }
+}
+
 
 // CRUD DE ADMINISTRADOR
 

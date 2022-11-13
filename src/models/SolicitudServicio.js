@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import { conexion } from "../database/conexion.js";
+import {Boleta} from "./Boleta.js"
 
 export const SolicitudServicio = conexion.define("SolicitudServicio", {
     id_sol_servicio: {
@@ -8,7 +9,7 @@ export const SolicitudServicio = conexion.define("SolicitudServicio", {
         autoIncrement: true
     },
     detalle_servicio: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(200),
         allowNull: false
     },
     hora_reservada: {
@@ -20,3 +21,5 @@ export const SolicitudServicio = conexion.define("SolicitudServicio", {
     tableName: "tbl_solicitud_servicio"
 })
 
+
+SolicitudServicio.hasOne(Boleta)

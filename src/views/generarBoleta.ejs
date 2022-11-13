@@ -1,0 +1,31 @@
+<%- include('partials/_header') -%>
+<%- include('partials/_barra') -%>
+
+<div class="container">
+  <table class="table table-dark table-bordered mt-4">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Descripción del cliente</th>
+        <th scope="col">Fecha de reservación</th>
+        <th scope="col">Tipo de servicio (ID)</th>
+        <th scope="col">Usuario (ID)</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% data.map(sol => { %>
+        <tr>
+          <td><%- sol.id_sol_servicio -%></td>
+          <td><%- sol.detalle_servicio -%></td>
+          <td><%= sol.hora_reservada.toLocaleDateString('es-cl') %></td>
+          <td><%- sol.ServicioIdServicio -%></td>
+          <td><%- sol.UsuarioIdUsuario -%></td>
+          <td><a href="/generarBoleta/<%- sol.id_sol_servicio -%>" class="btn btn-success">Generar Boleta</a></td>
+        </tr>
+      <% } ) %>
+    </tbody>
+  </table>
+</div>
+
+<%- include('partials/_footer') -%>

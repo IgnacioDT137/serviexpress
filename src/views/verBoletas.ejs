@@ -1,0 +1,24 @@
+<%- include('partials/_header') -%>
+<%- include('partials/_barra') -%>
+
+<script src="js/boleta.js"></script>
+
+<div class="row row-cols-8 mw-100">
+
+<% data.map(b => { %>
+  <div class="col mt-4 mb-5">
+    <div class="card">
+      <div class="card-body card-body-aj">
+        <h3 class="card-title text-center" id="folio<%- b.id_boleta -%>">Boleta Número <%- b.id_boleta -%></h3>
+        <h5 id="fecha<%- b.id_boleta -%>">Fecha: <%- b.fecha.toLocaleDateString('es-cl') -%></h5>
+        <h5 id="valor<%- b.id_boleta -%>">Valor: $<%- b.valor -%></h5>
+        <h5 id="soli<%- b.id_boleta -%>">Id Solicitud Servicio: <%- b.SolicitudServicioIdSolServicio -%></h5>
+        <button class="btn btn-primary" onclick="imprimir(<%- b.id_boleta -%>)">Imprimir boleta uwu</button>
+      </div>
+    </div>
+  </div>
+<% } ) %>
+  
+  </div>
+
+<%- include('partials/_footer') -%>

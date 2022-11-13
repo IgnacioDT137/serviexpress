@@ -1,0 +1,29 @@
+#cuadroMiCuenta {
+    display: flex;
+    color: white;
+ 
+}
+
+#datosMiCuenta{
+   border-left: 2px white solid;
+   padding: 3%;
+   width: 70%;
+   text-align: center;
+}
+
+#datosMiCuenta > button{
+    width: 20%;
+    height: 30%;
+    background-color: white;
+    border-radius: 8%;
+}
+
+#barraMiCuenta > a{
+    color: white;
+    
+}
+#barraMiCuenta{
+    padding-top: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
