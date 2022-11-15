@@ -1,6 +1,5 @@
 import { DataTypes } from "sequelize";
 import { conexion } from "../database/conexion.js";
-import { Producto } from "./Producto.js";
 import { SolicitudServicio } from "./SolicitudServicio.js"
 
 export const Servicio = conexion.define("Servicio", {

@@ -30,4 +30,4 @@ Producto.hasOne(Servicio, {
   foreignKey: {
     name: "FK_producto"
   }
-})
+});

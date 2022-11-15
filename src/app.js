@@ -15,6 +15,9 @@ import {Usuario} from "./models/Usuario.js";
 import { Servicio } from "./models/Servicio.js";
 import { SolicitudServicio } from "./models/SolicitudServicio.js";
 import { Boleta } from "./models/Boleta.js"
+import { Producto } from "./models/Producto.js";
+import { Proveedor } from "./models/Proveedor.js";
+import { proveedorRouter } from "./routes/proveedorRoutes.js";
 
 // creacion de la app
 const app = express();
@@ -49,6 +52,7 @@ app.use(staticRouter)
 app.use(usuarioRouter)
 app.use(serviciosRouter)
 app.use(boletaRouter)
+app.use(proveedorRouter)
 
 // declaracion de la carpeta para archivos estaticos (css, js e imagenes)
 app.use(express.static(__dirname + "/public"))

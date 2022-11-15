@@ -1,0 +1,21 @@
+<%- include('partials/_header') -%>
+<%- include('partials/_barra') -%>
+
+<div class="row row-cols-4 mw-100">
+
+    <% data.map(p => { %>
+      <div class="col mt-4 mb-5">
+        <div class="card">
+          <div class="card-body card-body-aj">
+            <h3 class="card-title text-center"><%- p.nombre -%></h3>            
+            <h5 class="card-title text-center"><%- p.stock -%></h5>            
+            <h3><%- p.valor -%></h3>
+            
+          </div>
+        </div>
+      </div>
+      <% } ) %>
+  
+  </div>
+
+<%- include('partials/_footer') -%>

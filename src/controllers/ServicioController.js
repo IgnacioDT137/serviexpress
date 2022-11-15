@@ -1,5 +1,8 @@
+import { conexion } from "../database/conexion.js";
+import { Producto } from "../models/Producto.js";
 import { Servicio } from "../models/Servicio.js";
 import { SolicitudServicio } from "../models/SolicitudServicio.js";
+import { QueryTypes } from "sequelize";
 
 export const renderFormulario = (req, res) => {
   try {
@@ -11,7 +14,7 @@ export const renderFormulario = (req, res) => {
 
 export const renderServicios = async (req, res) => {
   try {
-        const servicios = await Servicio.findAll()
+        const servicios = await conexion.query("select * from tbl_servicio ts inner join tbl_productos tp on ts.FK_producto = tp.id_producto", {type: QueryTypes.SELECT});
         return res.render("servicio", {data: servicios, title: "Servicios"})
   } catch (error) {
       return res.json(error)
@@ -58,7 +61,8 @@ export const renderCrudServicio = async (req, res) => {
   try {
       if (req.session.logueado && req.session.TipoUsuario == 3) {
           const servicios = await Servicio.findAll()
-          return res.render("crudServicios", {data: servicios, title: "Crud Servicios"})
+          const productos = await Producto.findAll()
+          return res.render("crudServicios", {data: servicios, title: "Crud Servicios", prods: productos})
       } else {
           return res.redirect("/")
       }

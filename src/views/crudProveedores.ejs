@@ -1,0 +1,69 @@
+<%- include('partials/_header') -%>
+    <%- include('partials/_barra') -%>
+
+        <div class="container bg-dark mt-5 mb-5">
+            <div class="row">
+                <div class="col-4 text-dark p-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="/crearProveedor" method="post">
+                                <legend>Crear Proveedores</legend>                           
+                                <div class="mb-3">
+                                    <label for="nombre">Nombre</label>
+                                    <input type="text" name="nombre" id="nombre" class="form-control" required>
+                                </div>
+        
+                                <div class="mb-3">
+                                    <label for="telefono">Telefono</label>
+                                    <input type="number" name="telefono" id="telefono" class="form-control" required>
+                                </div>
+        
+                                <div class="mb-3">
+                                    <label for="email">Email</label>
+                                    <input type="text" name="email" id="email" class="form-control" required>
+                                </div>                                                           
+                                <div class="mb-3">
+                                    <button type="submit" class="btn btn-primary">Crear</button>
+                                    <button type="reset" class="btn btn-danger">Limpiar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 p-3">
+                    <table class="table table-dark table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Telefono</th>
+                                <th scope="col">Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% data.map(pr => { %>
+                                <tr>
+                                    <td>
+                                        <%- pr.id_proveedor -%>
+                                    </td>
+                                    <td>
+                                        <%- pr.nombre -%>
+                                    </td>
+                                    <td>
+                                        <%- pr.telefono -%>
+                                    </td>
+                                    <td>
+                                        <%- pr.email -%>
+                                    </td>                                    
+                                    <td>
+                                        <a href="/admin/crudProveedores/editar/<%- pr.id_proveedor -%>" class="btn btn-success">Editar</a>
+                                        <a href="/admin/crudProveedores/borrar/<%- pr.id_proveedor -%>" class="btn btn-danger">Eliminar</a>
+                                    </td>
+                                </tr>
+                                <% } ) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <%- include('partials/_footer')-%>

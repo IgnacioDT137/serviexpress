@@ -1,0 +1,34 @@
+<%- include('partials/_header') -%>
+<%- include('partials/_barra') -%>
+
+<div class="container mt-5 mb-5">
+  <div class="card">
+    <div class="card-body">
+      <form action="/admin/crudProveedores/editar/<%= data.id_proveedor%>" method="post">
+        <legend>Editar Proveedor</legend>
+
+        <div class="mb-3">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre" value="<%= data.nombre%>" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="Telefono">Telefono</label>
+            <input type="text" name="telefono" id="telefono" value="<%= data.telefono%>" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="Email">Email</label>
+            <input type="text" name="email" id="email" value="<%= data.email%>" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button type="reset" class="btn btn-danger">Limpiar</button>
+        </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/_footer') -%>
