@@ -16,7 +16,7 @@ export const crearProveedor = async (req, res) => {
     await Proveedor.create(req.body);
     return res.redirect("/admin/crudProveedores")
   } catch (error) {
-    return res.json(error)
+    return res.render("error", {errorProv: true, title: "Error"})
   }
 }
 

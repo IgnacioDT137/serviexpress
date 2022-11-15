@@ -1,12 +1,14 @@
 <%- include('partials/_header') -%>
 
 <div class="row mw-100">
-    <div class="col-6 mx-auto mt-5">
+    <div class="col-6 mx-auto mt-5 mb-5">
         <div class="card">
             <div class="card-body">
                 <form action="/registro" method="post">
+                    <div id="arribaRegistro">
                     <legend>Crear Cuenta</legend>
-                    
+                    <a href="/login" class="btn btn-dark" id="botonMiCuenta">Volver</a>
+                    </div>
                     <div class="mb-3">
                         <label for="rut">Rut</label>
                         <input type="text" name="rut" id="rut" class="form-control" required>

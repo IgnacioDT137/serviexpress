@@ -13,6 +13,7 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/nosotros">Nosotros</a>
           </li>
+          <% if (TipoUsuario) { %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="true">
               Cuenta
@@ -23,6 +24,7 @@
               <li><a class="dropdown-item" href="/cerrarsesion">Cerrar sesion</a></li>
             </ul>
           </li>
+          <% } %>
 
           <!--Validacion de usuario admin-->
           <% if (TipoUsuario == 3) { %>
@@ -46,6 +48,8 @@
               </a>  
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="/solicitudes">Administrar Solicitudes</a></li>
+                <li><a class="dropdown-item" href="/productos">Administar Productos</a></li>
+                <li><a class="dropdown-item" href="/pedidos">Administar Pedidos</a></li>
                 <li><a class="dropdown-item" href="/boletas">Boletas</a></li>
               </ul>
               

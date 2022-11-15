@@ -1,0 +1,33 @@
+<%- include('partials/_header') -%>
+<%- include('partials/_barra') -%>
+
+<div class="container bg-dark mt-5 mb-5">
+  <div class="row">
+          <table class="table table-dark table-bordered">
+              <thead>
+                  <tr>
+                      <th scope="col">Id Solicitud</th>
+                      <th scope="col">Detalle</th>
+                      <th scope="col">Hora de reserva</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <% data.map(s => { %>
+                      <tr>
+                          <td>
+                              <%- s.id_sol_servicio -%>
+                          </td>
+                          <td>
+                              <%- s.detalle_servicio -%>
+                          </td>
+                          <td>
+                              <%= s.hora_reservada.toLocaleDateString('es-cl') %>
+                          </td>                          
+                      </tr>
+                      <% } ) %>
+              </tbody>
+          </table>
+  </div>
+</div>
+    
+<%- include('partials/_footer')-%>

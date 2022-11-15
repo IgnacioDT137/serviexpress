@@ -3,7 +3,8 @@
 <div class="container bg-dark mt-5 mb-5" id="cuadroMiCuenta">
     <div id="barraMiCuenta">
         <h1>Mi Cuenta</h1>
-        <a href="">Solicitudes</a>
+        <a id="linkBarraMiCuenta" href="/historialSolicitudes">Solicitudes</a> <br>
+        <a id="linkBarraMiCuenta" href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSHxwTKrGHjbrSqXPPSMgLRmnkCMdtBbDxqKVwVMlLLMbLkqDGJNlvjFmkhQglcttbzFNpTj">Ayuda</a>
     </div>
     <div id="datosMiCuenta">
         <h1>Mis Datos</h1>
@@ -11,7 +12,8 @@
         <p>Apellido: <%- data.apellido -%></p> 
         <p>Username: <%- data.username -%></p> 
         <p>Contraseña: *******</p>
-        <button>Editar Datos</button>
+        <a href="#" class="btn btn-dark" id="botonMiCuenta">Cambiar contraseña</a>
+        <!-- <a href="#" class="btn btn-dark " id="botonMiCuenta">Editar Datos</a> -->
     </div>
 </div>
 <%- include('partials/_footer') -%>

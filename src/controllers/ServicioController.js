@@ -40,6 +40,10 @@ export const solicitudServicio = async (req, res) => {
       FK_servicio: req.params.id_servicio,
     }
     await SolicitudServicio.create(newSolicitud);
+
+    const servicio = await Servicio.findOne({where: {id_servicio: req.params.id_servicio}})
+    const producto = await Producto.findOne({where: {id_producto: servicio.FK_producto}})
+    await producto.update({stock: producto.stock - 1})
     return res.render("solicitarServicio", {solicitado: true, title: "Reserva de hora", data: {}})
   } catch (error) {
     return res.json(error)
@@ -54,6 +58,17 @@ export const renderSolicitudes = async (req, res) => {
     return res.json(error)
   }
 }
+
+export const renderhistorialSolicitudes = async (req, res) => {
+  try {
+    const id_usuario = req.session.id_usuario
+    const solicitudes = await SolicitudServicio.findAll({where: {FK_usuario: id_usuario}})
+    return res.render("historialSolicitudes", {data: solicitudes, title: "Historial solicitudes"})
+  } catch (error) {
+    return res.json(error)
+  }
+}
+
 
 // Funciones de CRUD
 
@@ -77,7 +92,7 @@ export const crearServicio = async (req, res) => {
       await Servicio.create(nuevoServicio)
       return res.redirect("/admin/crudServicios")
   } catch (error) {
-      res.json(error)
+      return res.render("error", {errorServ: true, title: "Error"})
   }
 }
 

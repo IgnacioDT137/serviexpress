@@ -47,7 +47,8 @@ export const registro = async (req, res) => {
             nombre: req.body.nombre,
             apellido: req.body.apellido,
             username: req.body.username,
-            pwd: req.body.pwd
+            pwd: req.body.pwd,
+            FK_tipo_usuario: 1
         }
         await Usuario.create(usuario)
         return res.render("registro", {title: "Registro", created: true})
@@ -124,7 +125,7 @@ export const crearUsuario = async (req, res) => {
         await Usuario.create(nuevoUsuario)
         return res.redirect("/admin/crudUsuarios")
     } catch (error) {
-        res.json(error)
+        res.render("error", {errorCrearUser: true, title: "Error"})
     }
 }
 

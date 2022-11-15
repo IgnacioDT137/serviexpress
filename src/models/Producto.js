@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import { conexion } from "../database/conexion.js";
+import { Pedido } from "./Pedido.js";
 import { Servicio } from "./Servicio.js";
 
 export const Producto = conexion.define("Producto", {
@@ -31,3 +32,9 @@ Producto.hasOne(Servicio, {
     name: "FK_producto"
   }
 });
+
+Producto.hasMany(Pedido, {
+  foreignKey: {
+    name: "FK_producto"
+  }
+})

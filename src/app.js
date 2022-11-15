@@ -8,6 +8,9 @@ import { conexion } from "./database/conexion.js";
 import session from "express-session"
 import { serviciosRouter } from "./routes/serviciosRoutes.js";
 import { boletaRouter } from "./routes/boletaRoutes.js";
+import { proveedorRouter } from "./routes/proveedorRoutes.js";
+import { productoRouter } from "./routes/productoRoutes.js";
+import { pedidoRouter } from "./routes/pedidoRoutes.js";
 
 // importacion de los modelos
 import {TipoUsuario} from "./models/TipoUsuario.js";
@@ -17,7 +20,7 @@ import { SolicitudServicio } from "./models/SolicitudServicio.js";
 import { Boleta } from "./models/Boleta.js"
 import { Producto } from "./models/Producto.js";
 import { Proveedor } from "./models/Proveedor.js";
-import { proveedorRouter } from "./routes/proveedorRoutes.js";
+import { Pedido } from "./models/Pedido.js";
 
 // creacion de la app
 const app = express();
@@ -53,6 +56,8 @@ app.use(usuarioRouter)
 app.use(serviciosRouter)
 app.use(boletaRouter)
 app.use(proveedorRouter)
+app.use(productoRouter)
+app.use(pedidoRouter)
 
 // declaracion de la carpeta para archivos estaticos (css, js e imagenes)
 app.use(express.static(__dirname + "/public"))

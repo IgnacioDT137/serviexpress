@@ -1,0 +1,54 @@
+<%- include('partials/_header') -%>
+
+<% if (typeof errorCrearUser != 'undefined') { %>
+  <script>
+    Swal.fire({
+      icon: "error",
+      title: "Error al ingresar usuario, verifique que no hayan datos repetidos",
+      timer: 4000,
+      showConfirmButton: false
+    }).then(() => {
+      window.location = "/admin/crudUsuarios"
+    })
+  </script>
+<% } %>
+
+<% if (typeof boletaGenerada != 'undefined') { %>
+  <script>
+    Swal.fire({
+      icon: "success",
+      title: "Boleta generada correctamente",
+      timer: 3000,
+      showConfirmButton: false
+    }).then(() => {
+      window.location = "/solicitudes"
+    })
+  </script>
+<% } %>
+
+<% if (typeof errorServ != 'undefined') { %>
+  <script>
+    Swal.fire({
+      icon: "error",
+      title: "Error al ingresar servicio, verifique que no hayan datos repetidos",
+      timer: 4000,
+      showConfirmButton: false
+    }).then(() => {
+      window.location = "/admin/crudServicios"
+    })
+  </script>
+<% } %>
+
+<% if (typeof errorProv != 'undefined') { %>
+  <script>
+    Swal.fire({
+      icon: "error",
+      title: "Error al ingresar proveedor, verifique que no hayan datos repetidos",
+      timer: 4000,
+      showConfirmButton: false
+    }).then(() => {
+      window.location = "/admin/crudProveedores"
+    })
+  </script>
+<% } %>
+

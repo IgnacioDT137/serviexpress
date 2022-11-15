@@ -1,21 +1,33 @@
 <%- include('partials/_header') -%>
 <%- include('partials/_barra') -%>
 
-<div class="row row-cols-4 mw-100">
-
-    <% data.map(p => { %>
-      <div class="col mt-4 mb-5">
-        <div class="card">
-          <div class="card-body card-body-aj">
-            <h3 class="card-title text-center"><%- p.nombre -%></h3>            
-            <h5 class="card-title text-center"><%- p.stock -%></h5>            
-            <h3><%- p.valor -%></h3>
-            
-          </div>
-        </div>
-      </div>
+<div class="container">
+  <table class="table table-dark table-bordered mt-4">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Valor</th>
+        <th scope="col">Stock</th>
+        <th scope="col">Cantidad a ordenar</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% data.map(pro => { %>
+        <tr>
+          <td><%- pro.id_producto -%></td>
+          <td><%- pro.nombre -%></td>
+          <td><%- pro.valor -%></td>
+          <td><%- pro.stock -%></td>
+          <form action="/pedirProducto/<%- pro.id_producto -%>" method="post">
+            <td><input type="number" name="cantidad" id="cantidad" class="form-control" required min="1"></td>
+            <td><button type="submit" class="btn btn-success">Registrar pedido</button></td>
+          </form>
+        </tr>
       <% } ) %>
-  
-  </div>
+    </tbody>
+  </table>
+</div>
 
 <%- include('partials/_footer') -%>
