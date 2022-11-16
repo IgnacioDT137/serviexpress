@@ -47,6 +47,7 @@
                                     <button type="reset" class="btn btn-danger">Limpiar</button>
                                 </div>
                             </form>
+                            <button class="btn btn-success" onclick="generarInforme()">Generar Informe</button>
                         </div>
                     </div>
                 </div>
@@ -99,5 +100,46 @@
                 </div>
             </div>
         </div>
+
+        <table class="table table-dark table-bordered" id="tabla">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Rut</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Contraseña</th>
+                    <th scope="col">Tipo de usuario</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% data.map(u=> { %>
+                    <tr>
+                        <td>
+                            <%- u.id_usuario -%>
+                        </td>
+                        <td>
+                            <%- u.rut -%>
+                        </td>
+                        <td>
+                            <%- u.nombre -%>
+                        </td>
+                        <td>
+                            <%- u.apellido -%>
+                        </td>
+                        <td>
+                            <%- u.username -%>
+                        </td>
+                        <td>
+                            <%- u.pwd -%>
+                        </td>
+                        <td>
+                            <%- u.FK_tipo_usuario -%>
+                        </td>
+                    </tr>
+                    <% } ) %>
+            </tbody>
+        </table>
 
         <%- include('partials/_footer')-%>

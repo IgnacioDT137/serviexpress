@@ -27,6 +27,7 @@
                                     <button type="reset" class="btn btn-danger">Limpiar</button>
                                 </div>
                             </form>
+                            <button class="btn btn-success" onclick="generarInforme()">Generar informe</button>
                         </div>
                     </div>
                 </div>
@@ -34,9 +35,11 @@
                     <table class="table table-dark table-bordered">
                         <thead>
                             <tr>
+                                <th scope="col">ID</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Telefono</th>
                                 <th scope="col">Email</th>
+                                <th scope="col">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -65,5 +68,34 @@
                 </div>
             </div>
         </div>
+
+        <table class="table table-dark table-bordered" id="tabla">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% data.map(pr => { %>
+                    <tr>
+                        <td>
+                            <%- pr.id_proveedor -%>
+                        </td>
+                        <td>
+                            <%- pr.nombre -%>
+                        </td>
+                        <td>
+                            <%- pr.telefono -%>
+                        </td>
+                        <td>
+                            <%- pr.email -%>
+                        </td>                                    
+                    </tr>
+                    <% } ) %>
+            </tbody>
+        </table>
 
         <%- include('partials/_footer')-%>
